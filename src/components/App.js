@@ -11,11 +11,13 @@ class App extends Component {
     	<div>
     	<h3> Reminder Pro </h3>
     	<Row>
-		<Input placeholder="i have to ..." s={6}  />
-	
+		<Input s={6} label="I have to ..." />
+		
+		
+		
          </Row>
     	<Button waves='light'>
-		<Icon>thumb_up</Icon>
+		<Icon>note_add</Icon>
 	</Button>
 	</div>
     );

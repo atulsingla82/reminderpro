@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators } from 'redux';
+
 import {addReminder} from '../actions'
 import './App.css';
 import {Button, Icon, Row, Input} from 'react-materialize'
@@ -19,7 +19,8 @@ class App extends Component {
 
   addReminder(){
 
-    console.log('this.state', this.state)
+    console.log('this.state', this);
+    this.props.addReminder(this.state.text);
   }
 
   render() {
@@ -29,11 +30,9 @@ class App extends Component {
     	<h3> Reminder Pro </h3>
     	<Row>
       
-		<Input  s={6} 
-    label="I have to ..." 
-    onChange= {event => this.setState({text:event.target.value})} />
-		
-		
+		   <Input  s={6} 
+        label="I have to ..." 
+        onChange= {event => this.setState({text:event.target.value})} />
 		
          </Row>
     	<Button 
@@ -46,9 +45,6 @@ class App extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch){
 
-  return bindActionCreators({addReminder}, dispatch)
-}
 
-export default connect (null, mapDispatchToProps) (App);
+export default connect (null, {addReminder}) (App);
